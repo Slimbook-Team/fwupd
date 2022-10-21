@@ -1,0 +1,104 @@
+AMI ROM Tool - AfuEfiAarch64
+
+Description :
+	AMI Firmware Update utility(APTIO) for EFI SHELL.
+
+Release Date :
+	2022/02/21
+
+Source Control Location :
+	SS: AptioV;$/AptioV/RomUtils/Afu/AfuEfi/Aarch64;
+
+Reference Document :
+	Readme.txt
+	ReleaseNote.txt
+
+Known Issues :
+
+Release Notes:
+==============================================================================
+5.04.02
+	1. Improved error report mechanism
+	2. Hide commands from end user if RuntimeFlash absents
+	3. Update user guide
+==============================================================================
+5.04.01
+	1. Fix command /O exits without error messages
+==============================================================================
+5.04.00
+	1. Ignore efivar file open error and retry with create new file under Linux
+	2. Add RuntimeFlash2 interface support
+==============================================================================
+5.03.05
+	1. Upgrade for RuntimeFlash_013
+	2. Change license year from 2020 to 2021
+==============================================================================
+5.03
+	1. Improved exception handling with eEID_INEXIST_SYSTEM_ROM_ID and eEID_EC_CHIPID_ERROR
+==============================================================================
+5.02.03
+	1. Add Capsule validation via FIDT or ESRT
+==============================================================================
+5.02.02
+	1. Add support for Capsule thru Disk
+==============================================================================
+5.02.01
+	1. Add command /E /X /L /Ln
+	2. Improved capsule update via storage media
+==============================================================================
+5.02.00 (Tool version: 1.41)
+	1. Add OACU to support command passing through Capsule
+==============================================================================
+5.01.00 (Tool version: 1.39)
+	1. Improved watchdog disabling function
+	2. Fixed a potential bug causes core dump in memory allocation
+==============================================================================
+5.00.10 (Tool version: 1.36)
+	1. Fix errors when updating bigger ROM image to system
+	   (Need RuntimeFlash_0.10 or above)
+	2. Minor improvement in execution optimization
+==============================================================================
+5.00.09 (Tool version: 1.32)
+	1. Fix process logic when RomLayout changes. Option ENTIRE is functional
+==============================================================================
+5.00.08
+	1. Improve ROM size calculation logic
+	2. Fix custom ROM image update buffer error (EC Update)
+	3. Add three options for overriding default ROM layout information
+==============================================================================
+5.00.07
+	1. Backward update to make sure FV signature be updated at last block
+==============================================================================
+5.00.06
+	1. Add detection of ROM layout changing
+	2. Add ROM integrity check by UEFI/PI spec
+==============================================================================
+5.00.05
+	1. Fix the error of initialization of Memory Manager
+==============================================================================
+5.00.04
+	1. Added new commands for new features
+		a. Runtime Capsule Update
+		b. ROM image integrity check (PI spec)
+==============================================================================
+5.00.03
+	1. Added new commands for new features
+		a. Add OFBD OEM Password Checking function
+==============================================================================
+5.00.02
+	1. Added new commands for new features
+		a. /ROMINFO - Dump system BIOS information
+		b. /ECINFO  - Display OEM firmware information
+		c. /EC      - Update EC Firmware by specified file
+		d. /Q       - Suppress progress output
+		e. /SP      - Force BIOS to preserve specific data
+	2. Reduced progress ouput to increase speed (EIP#273852)
+	3. Fix command /K[n] parsing issue (EIP#292954)
+==============================================================================
+5.00.01
+	1. Main functions implemented, includes
+		a. /B - Flash PEI region
+		b. /P - Flash DXE region
+		c. /N - Flash NVRAM region
+		d. /K - Flash NCB region
+		e. /O - Dump current system BIOS

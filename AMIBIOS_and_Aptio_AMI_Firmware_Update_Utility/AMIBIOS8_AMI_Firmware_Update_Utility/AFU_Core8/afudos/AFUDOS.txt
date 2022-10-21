@@ -1,0 +1,292 @@
+AMI ROM Tool - AFUDOS
+
+Description :
+	AMI Firmware Update utility for DOS.
+
+Current Label :
+	8.00.15_AFUDOS_4.40
+
+Release Date :
+	2011/Dec/05
+
+Source Control Location :
+	SS: CORE8_ATL;$/BIOS/Corebin/800/ROMTools/AFU\afudos;
+
+Reference Document :
+	AFUDOS.PDF
+
+Known Issues :
+
+
+Release Notes:
+==============================================================================
+4.40
+
+Bug fixes:
+    - Fix CMOS checksum will bad problem, when BIOS supports "NVRAM as CMOS" 
+      setting and user issued "/N /R /L2" commands to update BIOS. [EIP 73709]
+==============================================================================
+4.39
+
+Bug fixes:
+    - Fix /MAI command help misspell problem.
+    - Change the check rule of clean Event Log function to avoid the event log 
+      has not been properly cleaned issues. [EIP 45347]
+==============================================================================
+4.38
+
+New features:
+    - Support the Load CMOS data from Nvram, when BIOS's NvramAsCmos_Support 
+      is on. [EIP 40143]
+==============================================================================
+4.37
+
+New features:
+    - Add a new hidden command "/UCIFD".
+==============================================================================
+4.36
+
+New features:
+    - Added the ME Ignition update by RomHole design and change its check rule.
+      [EIP 36089]
+    - Removed the /ECX command auto shutdown action, when flash completely.
+Bug fixes:
+    - Fixed the RomHole will not be protected issue, when its size is bigger 
+      than 64KB, even if OFBD has setting it is protected.
+    - Fix CMOS warning message misspelled problem. [EIP 36271]
+==============================================================================
+4.35
+
+New features:
+    - Added to support the "/E" and "/ECX" command can use EC single bin file 
+      to update Share EC firmware block. (/ECX for non AMI's EC firmware)
+==============================================================================
+4.34
+
+New features:
+    - Modify the "/SANTA" command to support the "ME" firmware check.
+    - Add the "/ECX" command to support non EC-share BIOS update, when it is 
+      not AMI's EC firmware.
+==============================================================================
+4.33
+
+New features:
+    1. Add the relative error message for ME firmware update, when retries failed.
+    2. Add ME Firmware Version Control Feature. 
+    
+Bug fixes:
+    1. Fixed the error message didn't correct problem, when update BIOS failure.
+    2. Fixed the halted issue of keyboard, when BIOS have EC share BIOS and CMOS 
+       Layout Checksum has been detected is different with BIOS.
+==============================================================================
+4.32
+
+New features:
+    1. Add a new command "/ICLC" for ignore the CMOS layout checksum check. 
+       (EIP 22354)
+
+Bug fixes:
+    1. Fixed the progress message of ROMHole update does not correct problem, 
+       when used the "/Hole" command to update.
+    2. Fixed the halted issue of AFU when used the "/MEUF" to update the ME 
+       firmware and used the "/Ln" command to Load CMOS Default at the same 
+       time.
+    3. Fixed the "/MEUF" and "/ME" two commands can not be used problem, when 
+       set them are default command by AMIUCP.
+    4. Fixed the halted issue of AFU when used the "/Q" command to hide all 
+       message and the CMOS Layout difference between System ROM and ROM File 
+       has been detected.
+    5. Fixed the RomHole can not be updated issue, when the parameter of 
+       RomHole not include the "File=xxx" definition.
+    6. Change the "/X" command check priority in order to avoid the OEM-Rom-ID 
+       Module does not work.
+==============================================================================
+4.31
+	1. For security concern, change the ME Ignition Firmware update rule.
+	2. Increased the "/ME" command for ME Entire Firmware update. (EIP 21346)
+	3. Fix the coding mistake. When user has used the AMIUCP to set the default
+	   command into the AFU, which would be caused the AFU can't display the
+	   help message.
+==============================================================================
+4.30
+	1. Increased the "/MEUF" command for ME Ignition Firmware update.
+	2. Fixed the AFU couldn't to flash the BIOS directly, when User have
+	   inserted the default command and ROM File image name at @CMD by AMIUCP.
+	   [EIP 20419]
+	3. Fixed the RomHole couldn't to protect issue, when one of RomHole of ROM
+	   File has the same location as in System BIOS's. And the RomHole count of
+	   ROM File doesn't match the System BIOS's. [EIP 20744]
+	4. Fixed the ECBB couldn't protect issue, when ECBB size doesn't match 64KB
+	   . [EIP 20843]
+==============================================================================
+4.29
+	Fixed the AFUDOS could not to restart the system on the Legacy free
+	platform after programming. [EIP 18623]
+==============================================================================
+4.28
+	1. Fixed the issue of Module checksums shown up message is "bad", when has
+	   one of module is aligned module. [EIP 18256]
+	2. Fixed the GPNV offset miscalculation problem, which caused the "/R"
+	   command preserve SMBIOS data failure, when the BIOS Size is bigger and
+	   than 1MByte. [EIP 18505]
+==============================================================================
+4.27
+	1. Added the CMOS Layout check to avoid generated the CMOS error after
+	   bootblock recovery. [EIP 15681]
+	2. Fixed the check rule issue of "IFD" block, when the "IFD" block size is
+	   not equal to 64Kbyte. [EIP 15502]
+	3. Fixed the NCB update checked rule, when NCB bin file not include the
+	   header info. [EIP 16464]
+==============================================================================
+4.26
+	1. To raise the OEM SMI's checking priority for OEM to be able to adjust
+	   ROMHole flash behavior in BIOS.
+	2. Referenced UCORE Function updated, according to UCORE v1.15.00.
+	   (Compress & Uncompress Rule)
+==============================================================================
+4.25
+	1. Fixed the RomHole issue of flashing BIOS, when the RomHole count of BIOS
+	   ROM File doesn't match the System BIOS's RomHole count.
+	2. Fixed the issue of $IIM offset wrong value, when using the RomHole count
+	   of changes to flash the BIOS, and executed the command "/p" twice.
+	3. Added to support the "/S" command to be stand along command.
+==============================================================================
+4.24
+	Added AMIUCP, default configuration, support.
+==============================================================================
+4.23
+	Change $IIM parsing rule for avoiding abnormal result when ROM File does
+	not include the signature.
+==============================================================================
+4.22
+	1. Fixed the issue of External BootBlock CheckSum error when EBB size
+	   doesn't match 64K.
+	2. Fixed the issue of Error occurred when ROMHOLE address set to "0".
+==============================================================================
+4.21
+	1. Support reporting flash ROM Hole Command on OFBD when user is issued.
+	2. Support reporting flash NCB Command on OFBD when user is issued.
+	3. Support Cancel commands reporting on OFBD default configuration data.
+==============================================================================
+4.20
+	Changed the ~CMD command style from "~" to be "/-" for prevented the
+	not-compatible issue on Linux and FreeBSD.
+==============================================================================
+4.19
+	Fixed the token of OFBD eModule doesn't open would cause the AFUDOS crashed
+	by EC command.
+==============================================================================
+4.18
+	1. Add /DEDFTCFG - to cancel all default configuration setting by BIOS.
+	2. Add ~cmd_name - to cancel default configuration setting by BIOS.
+	3. Fixed the SMI 20-24 balance problem. (For NB project)
+	4. Modified the ROMHOLE checking rule when ROMHOLE is protect with block
+	   address & Size matches with BIOS reported flash part info then AFU will
+	   NOT erase block and re-update the flash block. Adding this to prevent
+	   important data in BIOS when accident Reset is issued by end user.
+==============================================================================
+4.17
+	1. Fixed the RomHole updated error when uses OFBD eModule ver 1.0.
+	2. Modify EC [OEM Sub Version] message display type.
+==============================================================================
+4.16
+	1. Add "Password Checking" and "Default Issued Command Configuration"
+	   function according to OFBD spec.
+	2. Add the new command line /ec to support flashing standard EC BIOS.
+	3. Add the new command line /ncb and /ncbout for NCB flash.
+	4. Support OFBD 2.0 specification - new Data structures updated.
+	5. Add to get ROM Hole information from "F000" segment.
+		* a patch to prevent getting ROM Hole info error when customer does not
+		  want to flash BootBlock but main bios then the ROM Hole info address
+		  will ptr to wrong location.
+==============================================================================
+4.15
+	Add /clnevnlog for Clear Event Log.
+==============================================================================
+4.14
+	1. Add Rom Hole Function support.
+	2. Add /D command which backward compatible to AFU 1.xx version.
+	3. Add ROM ID checking under case non-sensitive rule.
+==============================================================================
+4.13
+	1. Fix the problem that some ROM Hole image may not be identified.
+	2. Add Utility Identification Information (UII) structure.
+	3. Change border line of help screen.
+	4. Add ShutDown function support.
+	5. Add Santa function support, flash BIOS without detail checking.
+	6. EC Patch: Some EC will fail when Open/Close SMI is not balanced.
+	7. Add fuma function which forces backup MA Information when flashing newer
+	   version of BIOS.
+==============================================================================
+4.12
+	1. Show warning message when /ECUF issued but no EC BIOS detected in BIOS.
+	2. Add Intel Flash Descriptor Mode support.
+==============================================================================
+4.11
+	1. Show warning function (/sw) will cause assertion error.
+	2. Change /E function's behavior.
+	3. Added /ECUF function to flash EC bios when newer version is detected.
+==============================================================================
+4.10
+	Add /MAI command to display System Rom or Inserted Rom file's MA
+	information.
+==============================================================================
+4.09
+	Sync with AFULNX.
+==============================================================================
+4.08
+	1. /M, /L0,/L1 functions become standalone function which means uses w/o
+	   inseting the rom file.
+	2. Add change version function /chgver.
+	3. Fixed Mac address reading error.
+	4. Fixed flash unknown data when /M is issued.
+	5. Added new routine for afudos be able to read default setting cmd(s)
+	   properly.
+==============================================================================
+4.07
+	1. Added in new cmd /X:n for ROM ID checking with user defined ID length.
+	   [funciton hidden from help]
+	2. Added in new cmd /sw for showing warning message. [funciton hidden from
+	   help]
+==============================================================================
+4.06
+	Add maximum retry parameter.
+==============================================================================
+4.05
+	1. Now AFUDOS can be configured and then executed properly through AFUSETUP
+	   utility. Following items are configurable:
+		* Command state: enable/disable, shown/hidden, and always issued.
+		* Error return code and error message.
+	2. Better algorithm in finding system's ROM ID.
+	3. Fix potential failure on physical memory un-mapping.
+	4. Fix possible memory leaks problems.
+	5. Fix bad grammar of some error messages.
+==============================================================================
+4.04
+	1. Add capability to preserve SMBIOS structures in NVRAM.
+	2. Fix error parsing command line if 2nd character of ROM filename is 'm'.
+==============================================================================
+4.03
+	1. ROM ID characters are case-insensitive.
+	2. Compressed ROM Image support.
+==============================================================================
+4.02
+	1.  Fix bugs for /C, /K, /O and /U command.
+	2. Add /M option to update Boot Block MAC address if it exists.
+	3. Check BIOS write-protection.
+	4. Display error message when AFUDOS is running under Windows.
+==============================================================================
+4.01
+	1. Add /L2 and /L3 commands to load CMOS optimal/default settings from
+	   given ROM File.
+	2. Lock keyboard and mouse during flashing BIOS.
+	3. Fix the problem that EC block cannot be updated.
+	4. Fix the problem that NCB checksum error if the ROM file built by
+	   ROMBUILD v4.04 or lower.
+	5. Fix the problem that cannot get correct ROM ID from CORE 8.00.10 (or
+	   lower) BIOS ROM file.
+	6. Fix the problem that update BIOS failure while O/S running under
+	   multi-processor mode.
+==============================================================================
+4.00
+	Formal release.

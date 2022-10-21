@@ -1,0 +1,1 @@
+Aptio V AFU for DOS is no longer being maintained. The last official release was in February 2015, therefore any projects/products created after this time may not flash correctly with Aptio V AFU for DOS. The preferred method available for download from the website is AFU for EFI or Microsoft Windows.

@@ -1,0 +1,34 @@
+AMI ROM Tool - AfuWinAarch64
+
+Description :
+	AMI Firmware Update utility(APTIO) for Windows.
+
+Release Date :
+	2022/2/21
+Source Control Location :
+	SS: AptioV;$/AptioV/RomUtils/Afu/AfuWin/Aarch64;
+
+Reference Document :
+	Readme.txt
+	ReleaseNote.txt
+
+Known Issues :
+
+Release Notes:
+==============================================================================
+5.04.02
+	1. Improved error report mechanism
+	2. Hide commands from end user if RuntimeFlash absents
+	3. Update user guide
+==============================================================================
+5.04.01
+	1. Fix command /O exits without error messages
+==============================================================================
+5.04.00
+	1. Ignore efivar file open error and retry with create new file under Linux
+	2. Add RuntimeFlash2 interface support
+==============================================================================
+5.03.05
+	1. Initial version (sync to Linux and EfiShell version)
+	2. Change license year from 2020 to 2021
+	3. Remove several commands need RuntimeFlash

@@ -1,0 +1,743 @@
+﻿AMI ROM Tool - AFUEFI / AFULNX / AFUWIN
+
+Description :
+    AMI Firmware Update utility(APTIO) for EFI SHELL.
+    AMI Firmware Update utility(APTIO) for LINUX.
+    AMI Firmware Update utility(APTIO) for WINDOWS.
+
+Release Date :
+    2022-05-12
+
+Source Control Location :
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuEfi/32;
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuEfi/64;
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuLnx/32;
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuLnx/64;    
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuWin/32;
+    SS: AptioV;$/AptioV/RomUtils/Afu/AfuWin/64;
+
+Reference Document :    
+    readme.txt
+    AMI_Aptio_5.x_AFU_User_Guide_NDA.pdf
+
+Known Issues :
+    Use "/Rn" parameter will have no effect or caused an exception error, when 
+    the SMBIOS module version is between "4.6.1_ALPHA_01.26.2_DMIRW_TEST" and 
+    "(INT)4.6.1_ALPHA_01.29_Type39".
+
+Release Notes:
+==============================================================================
+5.15.03.0081
+Issue Fixed
+    Fixed an issue when BIOS is enabled with x-UEFI-AMI but warning appears in UEFI Shell. [EIP 675478]
+    Fixed an issue when BGT mode flash error code check issue. [EIP 677152]
+    Fixed an issue where AFUWINGUI would fail when doing a disabled security flash capsule. [EIP 680011]
+GDK Module
+    Upgraded GDK module to 1.08.12.[EIP677580]
+    Upgrade Windows driver version to 5.3 to remove the issue causing privileged escalations. [EIP668933]
+==============================================================================
+5.15.02.0078
+New Features
+    Add support for secure flash disable that can use capsule and recovery update. [EIP 608731]
+Issue Fixed
+    Fixed an issue when after ROM layout changed, to downgrade the original BIOS that can't power on. [EIP 655172]
+GDK Module
+    Upgraded GDK module to 1.08.9.
+==============================================================================
+5.15.01.0075
+New Features
+    Add support for PSPFlash use /FAB commands in the released AFU. [EIP 646468]
+    Add support block traditional parameters on PFR provisioned system. [EIP 629380 645635 624966]
+Issue Fixed
+    Fixed an issue when loading the ME data string, display is error. [EIP 646016]
+    Fixed an issue when use BIOS Guard command /BIOSALL, it will casue flash fail.[EIP646263]
+    Fixed an issue where AFU would not check passwords when using /capsule command update when BIOS Guard was enabled. [EIP649214]
+    Fixed an issue when use the /A: command on GeminiLake platforms always return error 0xB6.[EIP 647749]
+    Fixed an issue when the update fails, a flash retry will cause a flash progress error to be displayed.[EIP 650069]
+Rule Changes
+    Changed Copyright to 2022.
+==============================================================================
+5.15.00.0064
+New Features
+    Added to support BIOS Guard function to AFU. [EIP 626064].
+Issue Fixed
+    Fixed an issue when use OFBD SMI delay can't enabled. [EIP 591655 & 642342]
+    Fixed an issue when under Windows the platform of LAN ports is more than 7, AFU will crash. [EIP 617770]
+PLDM Library Update List
+    UefiLib 32:
+    AmiSetuplibEfi.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibEfi;AmiSetupLibEfi_1.09
+    UefiLib 64:
+    AmiSetuplibEfiX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibEfi;AmiSetupLibEfi_1.09
+    WinLib 32:
+    AmiSetupLibWin.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibWin;AmiSetupLibWin_1.10
+    WinLib 64:
+    AmiSetupLibWinX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibWin;AmiSetupLibWin_1.10
+    LnxLib 32:
+    AmiSetupLibLnx.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibLnx;AmiSetupLibLnx_1.09
+    LnxLib 64:
+    AmiSetupLibLnxX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSetupLib/AmiSetupLibLnx;AmiSetupLibLnx_1.09
+==============================================================================
+5.14.04.0048
+New Features
+    Added to support check ROM ID after PFR provisioned.[EIP615202]
+    Added to support sign with PFR function.[EIP602261]
+    Added to support default access to administration permissions in Windows AFU.
+Issue Fixed
+    Fixed an issue when use the /A command, AFU would report incorrect error message.[EIP618907]
+    Fixed an issue when BIOS changing the TSE_ROMHOLE_SUPPORT token, AFU would flash failure.[EIP610799]
+    Fixed an issue when PLDM  was executed, some platforms do not work properly.[EIP594660]
+Rule Changes
+    Changed the execution position of the delay time setting.[EIP591655]
+==============================================================================
+5.14.03.0039
+New Features
+    Added to support OFBD flash delay when AFU flash BIOS.[EIP596445]
+    Added to support the preservation of the complete mapping language.[EIP594660]
+Issue Fixed
+    Fixed issue when AFU linux uses the /gendrv command, that the driver cannot be generated.
+    Fixed issue when BIOS setting enalbed VDM support, in Alder Lake, AFU linux version will not run.[EIP605146][EIP604457]
+    Fixed issue when use comamnd /me /recovery is failed.[608325]
+    Fixed an issue when using command/ATR and enabling BIOS OfbdDefCfg module, which caused the module to be triggered incorrectly[EIP604861]
+GDK Module
+    Upgraded GDK module to 1.08.7.
+==============================================================================
+5.14.02.0026
+New Features
+    Added support ComboAM4 project ACAU version 0x200.[EIP577545]
+Issue Fixed
+    Fixed issue where BIOS setting enalbed VDM support, in Whitley, AFU will not run.[EIP582618][EIP586227]
+    Fixed issue where use signature ME the ROM is lager than 32M, the AFU progress will show messy message.[EIP581548]
+    Fixed issue Where use the /PFRU command, AFU will update the rom failure.[EIP591885][EIP596264]
+    Fixed issue Where use the /MLANG command to display Not Support Warning message under linux OS.[EIP581375]
+    Fixed issue Where use the /MLANG command it will crash fail under windows OS.[EIP596267]
+Updated Module
+    Upgraded AFU flash progress display method.[EIP570211]
+    Updated PLDM SCE Library version.
+Rule Changes
+    Changed Copyright to 2021.
+PLDM Library List
+    UefiLib 32:
+    SceEfiLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceEfi/Ia32;(INT)SceEfi32_5_04_1140.01
+    UefiLib 64:
+    SceEfiLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceEfi/X64;(INT)SceEfi64_5_04_1140.01
+    WinLib 32:
+    SceWinLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceWin/Ia32;(INT)SceWin32_5_04_1144.01
+    WinLib 64:
+    SceWinLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceWin/X64;(INT)SceWin64_5_04_1144.01
+    LnxLib 32:
+    SceLnxLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceLnx/Ia32;(INT)SceLnx32_5_04_1143.01
+    LnxLib 64:
+    SceLnxLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceLnx/X64;(INT)SceLnx64_5_04_1143.01
+GDK Module
+    Upgraded GDK module to 1.08.5. 
+    Support Linux Kernel 5.9.
+==============================================================================
+5.14.01.0015
+New Features
+    Added a new command /PFRU:CPLD. [EIP562541]
+    Added a new command /RLC:J. [EIP565403]
+    Added a new command /K:<GUID>. [EIP537655]
+Issue Fixed
+    Fixed issue where AFU is unable to load driver after AFU driver is packaged by UCP. [EIP576102]
+    Fixed issue where progress percentage calculation error while AFU executes command /MEUL /capsule. [EIP575701]
+    Fixed issue where AFU cannot display error message from OFBD module while AFU is checking OFBD module version. [EIP572373]
+Rule Changes
+    Changed rule that AFU will check ROM ID while AFU executes command /ME. [EIP559331]
+GDK Module
+    Upgraded Windows driver version to 5.1 for supporting UP TO 4GB physical memory address. [EIP565914]
+    Upgraded GDK module.
+==============================================================================
+5.14.00.0006
+Issue Fixed
+    Fixed issue where file cannot be opened for BIOS flash in Linux OS.[EIP561008]
+    Fixed issue where Windows GUI version cannot flash BIOS.[EIP560040]
+    Fixed issue where tool is unable to check secure boot whether or not is enabled.
+    Fixed issue where tool cannot flash BIOS in Apollo Lake.
+    Fixed issue where PLDM will be crashed in specific platforms.[EIP560546][EIP557115]
+    Fixed issue where in tool mounts file which results in PLDM being lost while users reboot Linux OS.[EIP555685]
+    Fixed issue where stack smashing detected error.
+GDK Module
+    Upgraded to Windows driver version 5.0.
+    Upgrade GDK module.
+    Upgrade Windows version check mechanism to execute Windows driver.
+==============================================================================
+5.13.00.05
+Updated Module
+    Upgraded AFU structure to ETA2.
+    Updated PLDM SCE Library version to 5.04.1139.
+    Updated PFR behavior where AFU removes to enable the command bit of BIT7. [EIP541490]
+Issues Fixed
+    Fixed issue where AFU is unable to close normally in Windows 7 32bit. [EIP550858]
+Ucore2 Module
+    Updated Windows driver 4.1.
+==============================================================================
+5.12.05.2125
+New Features
+    Added to support PFR implementation.[EIP506347]
+    Added to support command /mlang: for PLDM module.[EIP525342]
+Issues Fixed
+    Fixed string is not organized correctly.[EIP527919]
+==============================================================================
+5.12.04.2099
+New Features
+    Added To support another usage /RLC:M for BIOS and ME update in one time.[EIP509838]
+Issues Fixed
+    Fixed issue where AFU can't allocate physical memory in Debian x86 version.[EIP523294]
+Rule Changes
+    Changed Copyright to 2020.[EIP519084]
+Improvement
+    Improved AFUWINGUI to show OS information by WMI.[EIP512741]
+    Improved secure patch FV module. [EIP505866]
+==============================================================================
+5.12.03.2074
+New Features
+    Added AFU supports top swap feature. [EIP499381][EIP482630]
+    Added a feature when AFUGUI has a driver error, it will display a warning message.
+Issues Fixed
+    Fixed issue where AFU cannot get the ACPI DSTD table in RHEL 7.6.
+Improvement
+    Improved error message when users use ROM in 'Non bios guard BIOS image' and 
+    in 'Not existing BIOS image file case'. [EIP499382]
+    Improved the length of AFU display messages.
+    Improved secure patch FV module. [REF-51370][EIP501535]
+    Modified the command /RLC: description.
+Ucore2 Module
+    Updated Ucore2 Module to Trunk2069.
+==============================================================================
+5.12.03.2045
+Update Module
+    Updated windows driver.
+==============================================================================
+5.12.02.2028
+New Features
+    Added AFULNX Linux driver control mechanism.
+    Added error check on command /GENDRV
+Issues Fixed    
+    Fixed issue where using command /A /PW: together will not execute command /A.
+    Fixed issue where AFU will show 0XA0 error when APL and GML platforms update firmware.
+    Fixed issue where command /ATR description from “Auto user” to “Auto use”.
+    Fixed issue where the parsing method of OEM CFG will be allowed by only recognizing a portion of cmd 
+    string input.
+    Fixed issue where AFU EFI x32 will show 0X46 error when shell 32 platforms update firmware.
+Update Module
+    Updated that AFU will ensure the ACAU (AMD Combo AM4 Update) whether or not is 0x101.
+    Updated that the sequence of command /ssb to optimize BIOS flash memory.
+    Updated ME data string as “Upload the firmware image data to BIOS” when platform is APL or GML.
+    Updated the help information of Secure flash capsule mode as " System is going to shut down and will 
+    restart automatically. Are you ready? (Y/N)..."
+==============================================================================
+5.12.01.1977
+New Features
+    Added AFU can support SSB command by AMD Combo AM4 platform.
+    Added AFU check OFBD ROM ID error message.
+Issues Fixed
+    Fixed an issue where AFU linux failed to load the driver on the PenDrive.
+    Fixed an issue where AFU display help menu does not display ME region commands.[EIP458269]
+    Fixed an issue where secure flash is disabled, AFU does not force a check write-once rule.[EIP454946]
+    Fixed an issue where NonBIOS_Validation token enabled, need can support backward compatibility.
+Update Module
+    Updated the version of supporting Faster Deployment of Security Patches feature to REF-51368-SourceChange V3.[EIP459963]
+Ucore2 Module
+    Updated Ucore2 Module to Trunk1981.
+==============================================================================
+5.12.00.1939
+New Features
+    Added AFU can support ME push data retry.
+Update Module
+    Updated windows driver.
+    Updated the version of supporting Faster Deployment of Security Patches feature to V6_2 [EIP436131]
+    Updated PLDM SCE Library.
+PLDM Library List
+    UefiLib 32:
+    SceEfiLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceEfi/Ia32;(INT)SceEfi32_5_03_1125
+    UefiLib 64:
+    SceEfiLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceEfi/X64;(INT)SceEfi64_5_03_1125
+    WinLib 32:
+    SceWinLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceWin/Ia32;(INT)SceWin32_5_03_1125
+    WinLib 64:
+    SceWinLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceWin/X64;(INT)SceWin64_5_03_1125
+    LnxLib 32:
+    SceLnxLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceLnx/Ia32;(INT)SceLnx32_5_03_1125.2
+    LnxLib 64:
+    SceLnxLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceLnx/X64;(INT)SceLnx64_5_03_1125.2
+Ucore2 Module
+    Updated Ucore2 Module to Trunk1938.
+==============================================================================
+5.12.00.1904
+New Features
+    Added AFU can support ME push data retry.
+Update Module
+    Updated windows driver.
+    Updated the version of supporting Faster Deployment of Security Patches feature to V6_2 [EIP436131]
+    Updated PLDM SCE Library.
+PLDM Library List
+    UefiLib 32:
+    SceEfiLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceEfi/Ia32;(INT)SceEfi32_5_03_1125
+    UefiLib 64:
+    SceEfiLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceEfi/X64;(INT)SceEfi64_5_03_1125
+    WinLib 32:
+    SceWinLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceWin/Ia32;(INT)SceWin32_5_03_1125
+    WinLib 64:
+    SceWinLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceWin/X64;(INT)SceWin64_5_03_1125
+    LnxLib 32:
+    SceLnxLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceLnx/Ia32;(INT)SceLnx32_5_03_1125.2
+    LnxLib 64:
+    SceLnxLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmisceAfu/SceLnx/X64;(INT)SceLnx64_5_03_1125.2
+Ucore2 Module
+    Updated Ucore2 Module to Trunk1901.
+==============================================================================
+5.11.06.1854
+New Features
+    Added AFU can support OEM ME region.[EIP437754]
+Issues Fixed
+    Fixed issue where the user use /ME command in not support signature ME platform,
+    but the signature ME function uploaded the rom file.
+    Fixed issue where the user use /MEUL:<BIN> /capsule for capsule update, AFU will
+    show 0x58 error.
+==============================================================================
+5.11.05.1840
+New Features
+    Added AFU can support AMD 32MB Rom File.[EIP432032]
+Issues Fixed
+    Fixed issue where PLDM feature doesn't work when user use command /q for capsule update 
+    in EFI Shell environment.[EIP440501]
+    Fixed issue where the user did not use the /ME related command, but the signature ME function 
+    uploaded the rom file.
+Update Module    
+    Updated the version of supporting Faster Deployment of Security Patches feature to V6 [EIP436131]
+==============================================================================
+5.11.04.1806
+New Features
+    Added 2 AFU commands for capsule and recovery with Intel BIOS Guard Technology. [EIP433668]
+    Added AFU can support signed ME firmware update under Run Time state. [EIP402390]
+Rule Changes
+    Changed  command /pw which will not check the returned password length from BIOS.
+Update Module    
+    Updated the version of supporting Faster Deployment of Security Patches feature to V5 [EIP436131]
+==============================================================================
+5.11.03.1778
+Issues Fixed
+    Fixed issue where AFU flash use command /p /b will show verify fail error.
+==============================================================================
+5.11.02.1769
+Issues Fixed
+    Fixed issue where AFU show version.
+==============================================================================
+5.11.02.1762
+Issues Fixed
+    Fixed issue where PLDM feature doesn't work when ROM layout change with which users select option (F). [EIP420604]
+    Fixed issue where AFU cannot look for ROMHOLE when the position of ROMHOLE in different FV. [EIP424921]
+Rule Changes
+    Changed to support that PLDM feature will not work when ROM layout change with which users select option (E).
+    Changed to support new ME check process. [EIP422582]
+    Changed to support Faster Deployment of Security Patches feature.
+    Changed to support command /meuf.
+==============================================================================
+5.11.01.1745
+New Features
+    Added a feature to support command /pw:  on Gemini Lake and Apollo Lake platforms. [EIP414545]
+    Added a feature to support command /e  on Gemini Lake and Apollo Lake platforms. [EIP411848]
+    Added Faster Deployment of Security Patches copy tool integration. [EIP406350]    
+Issues Fixed
+    Fixed issue where AFU will result in system hang up after reading process has done on Gemini Lake platform. [EIP416683]
+    Fixed issue where AFU will show "map warning" message if BIOS supports WSMT but Linux environment does not have Linux kernel source. [EIP415782]
+Feature Enhancement       
+    Enhanced the mechanism where PLDM feature cannot be used by AFU Linux on OEM Purley platform. [EIP403785]
+==============================================================================
+5.11.00.1727
+New Features
+    Added OACU module support.[EIP380410]
+    Added AFUWINGUI window can't be closed during flash via touch device.[EIP413403]
+==============================================================================
+5.10.02.1690
+New Features
+    Added command "/RLC:"[EIP412153]
+    Added OFBD AFU log module.[EIP398221]
+    Added a new support that DMI data can be saved in non boot block or main block. [EIP408706][EIP412149]
+Issues Fixed
+    Fixed issue where users input command usage ”/me /s”, AFU will not flash ME region. *EIP411273+
+Rule Changes
+    Changed to enable \CLNEVNLOG command.
+    Changed that when flashing BIOS to remove OA key via disabling Secure flash, tool will not use the solution of write once to execute. [EIP404259]
+==============================================================================
+5.10.01.1670
+New Features
+    Added EFI_FIRMWARE_FILE_SYSTEM3_GUID condition to supports check ROM FV.
+Issues Fixed
+    Fixed issue where check BIOS + ME BIN file in Coffee Lake.
+Rule Changes
+    [LNX]Modified the order of Linux check ACPI table.
+==============================================================================
+5.10.01.1648
+Issues Fixed
+    Fixed issue where PS2 keyboard / mouse cannot be used normally under EFI Shell.
+    Fixed issue where ROM Layout Change option list will not be displayed when commands are /capsule, /recovery, and /D.
+    Fixed issue where AFU will not inspect ROM Layout Change if ROM file or on-board BIOS cannot be got ROM Layout FFS data. [EIP394360] 
+Rule Changes
+    Changed title when ROM Layout Change, the title would become as following:
+        Press \"E\" - This option will update entire ROM and exit.
+        Press \"A\" - This option will be no ROM update.
+        Press \"F\" - This option will be forcing to follow the command by user provided.
+    Modified to inspect the mechanism of BIN file of ME + BIOS. [EIP381008]
+    [LNX]Modified the order of Linux loading driver. [EIP398938]
+==============================================================================
+5.10.00.1615
+Issues Fixed
+    Fixed issue OAD command can't delete OA Key.
+==============================================================================
+5.10.00.1610
+New Features
+    Added a mechanism that tool will provide 3 options, “(F)Force, (E)Exit, (A)All” when ROM layout change. [EIP353462]
+    Added a scenario that is while performing APL and FTF EMMC mode, tool only can use /p /n /e /a
+    Added 2 error messages in APL EMMC mode.
+      Error: EMMC Mode cannot be used runtime flash command, please use capsule or recovery to update BIOS.
+      Error: Capsule and Recovery command cannot be used together.
+    Added OFBD OAKEY Statue Flag.
+    Added OFBD OAKEY Func Flag.
+    Added a mechanism that tool cannot use command /p /b /n to update BIOS in runtime flash if the system is EMMC.
+    Added command /a in Fault Tolerance Flash EMMC mode. [EIP373363]
+    Added command /OAD in Fault Tolerance Flash EMMC mode. [EIP373363]
+    Added a retry mechanism for ME Flash. [EIP375769]
+    Added to use Fault Tolerance Flash when Secure Flash is disabled. [EIP382585]
+    Added a mechanism to detect BIN file size of “BIOS+ME”. [EIP381008]
+    Added command /pw: to general command list.
+    Added more detailed descriptions of error message if parameter only has command /Recovery or /Capsule. [EIP353002]
+    Added a string which is “Process completed” when a process has done successfully. [EIP385941]
+Driver Updates
+    [LNX] Added that tool supports Linux kernel 4.13. [EIP369928, EIP370558, EIP372572, EIP377663]
+Rule Changes
+    Changed Copyright to 2018.
+    Removed command “/caf”, “/clnevnlog”, and “/meuf”.
+    Changed the flash process of command /a. When OA is OA Block in single BIN file, the tool will skip the behavior of Reading Flash. [EIP350874]
+    Changed the process of OA OFBD update under Fault Tolerance Flash EMMC mode. [EIP373363]
+    Changed that AFU will not read SPI ROM data when the tool does ME flash individually.
+    Changed command /A to /A:.    
+    [LNX] Changed that using Linux Driver to map ACPI table. [EIP379929]
+Issues Fixed
+    Fixed issue where using Flash Lib Read API ROM cannot retry. [EIP375769]
+    Fixed issue where JBC cannot be used before adjusting the order of module.
+    Fixed issue where reading NCB will cause the accumulation problem.
+    [LNX] Fixed issue where UCP will show error message of UAF when users are loading AFU Linux.
+==============================================================================
+5.09.04.1503
+    [AFU][Added] 
+    1.Added to support Coffee Lake ME flash.
+    [AFU][Changed] 
+    1.Updated PLDM SCE Library.
+    2.Changed if using command /p /n, AFU will do Flash All for APL platform.
+    [Windows GUI][Fixed]
+    1.Fixed issue where WINGUI ROM file ID and ROM file Path show garbled.
+    [PLDM Library List]
+    UefiLib 32:
+    NvramImageLibEfi.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibEfi/Ia32;(INT)NvramLibEfi_STDLIB-1.0.2_9
+    SceEfiLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceEfi/Ia32; (INT)SceEfi_5_03_1112
+    UefiLib 64:
+    NvramImageLibEfiX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibEfi/X64;(INT)NvramLibEfi_STDLIB-1.0.2_9
+    SceEfiLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceEfi/X64; (INT)SceEfi_5_03_1112
+    WinLib 32:
+    NVRAMImageLibWin.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibWin/Ia32; (INT)NvramLibWin-1.0.2_8
+    SceWinLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceWin/Ia32; (INT)SceWin_5_03_1112
+    WinLib 64:
+    NVRAMImageLibWinX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibWin/X64; (INT)NvramLibWin-1.0.2_8
+    SceWinLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceWin/X64; (INT)SceWin_5_03_1112
+    LnxLib 32:
+    NvramLibLnx.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibLnx/Ia32; (INT)NvramLibLnx-1.0.2_8
+    SceLnxLib32.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceLnx/Ia32; (INT)SceLnx_5_03_1112
+    LnxLib 64:
+    NvramLibLnxX64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/NvramLib/NvramLibLnx/X64; (INT)NvramLibLnx-1.0.2_8
+    SceLnxLib64.lib => $/AptioV/RomUtils/Eta2/Binary/Modules/AmiSce/SceLnx/X64; ((INT)SceLnx_5_03_1112
+==============================================================================
+5.09.03.1470
+    [AFU][Fixed]
+    1. Fixed issue where tool will have a chance to search scope which is over 
+       than original setting and will be crashed when using command /r or /rn.[EIP353984]
+    [Windows GUI][Added]
+    1.Added support ApolloLake platform flash.[EIP352902]
+    [Windows GUI][Fixed]
+    1.Fixed issue where entering password will cause system feedback incorrect issue.[EIP351719]
+==============================================================================
+5.09.03.1456
+    [AFU][Changed]
+    1.Changed that will not check ACPI's WSMT table.[EIP354442, EIP346731]
+==============================================================================
+5.09.03.1448
+    [AFU][Fixed]
+    1.Fixed issue where FaultToleranceFlash will be flashed to wrong block.
+    [AFU][Changed]
+    1.Changed that command /CAF removed to write back _FVH command /caf.
+==============================================================================
+5.09.03.1445
+    [AFU][Fixed]
+    1.Fixed issue where an error of ME detection on APL platform.
+    2.Fixed issue where when FaultToleranceFlash is enable in APL which will execute the process of FaultToleranceFlash.
+    
+    [AFU][Added] 
+    1.Added OEMCMD command.[EIP334724]
+    2.Added that PLDM will not generate a PldmData.bin when platform does not support BCP (BiosConfigPreserve) module.[EIP346731]
+    3.Added that PLDM will not generate a PldmData.bin when platform supports BCP (BiosConfigPreserve) 
+      module and Token ENABLE_FV_BCP_SUPPORT = 1.
+    
+    [AFU][Changed]
+    1.Changed AFU will not calculate FID again when OA key in NCB. [EIP325353]
+    2.Changed only GetPattern can be enabled in the block of BIOS flash. [EIP326007]
+    3.Changed that AFU can support Block size is over 64KB with above 32MB BIOS by structure of sROMInfoEX. [EIP340328]
+    4.Changed that the system will look for ACPI table whether is support or not before using WSMT.
+    5.Changed that cannot use SMI for updating OA to ACPI table directly under WSMT state. [EIP333352, EIP340049]
+    6.Changed that PLDM fail error message.
+    7.Changed that it is no function for command /reboot or /shutdown when combines /capsule or/recovery together.
+==============================================================================
+5.09.02.1384
+    [AFU][Fixed]
+    1. Fixed issue where cannot inspect smaller block size of every flash during verification phase. [EIP306554]
+    2. Fixed issue where command /r and /rn cannot preserve data. [EIP327552]
+    3. Fixed issue where flashing NCB will not be ended when have error. 
+    4. Fixed issue where PLDM cannot be workable for some RC related options. [EIP314849]
+    5. Fixed issue where cannot update OA3 when the /A is an optional command. [EIP331115]
+
+    [AFU][Added] 
+    1. Added 64 MB ROM support, but need to have new version of SMIFlash module. [EIP308819, EIP314202, EIP297537, EIP297539]
+    2. Added when detect multi-ROM ID, AFU will only adopt the ROM ID data of boot block. 
+    3. Added Apollo Lake Normal Flash and Fault Tolerance Flash. [EIP314749]
+        
+    [AFU][Changed]
+    1. Changed the error message of ROM layout change.
+    2. Update ROM layout checking rule if the FFS header is not matched, which will continue to compare with FFS data. [EIP327457]
+    3. Modified the description of error code 0xB6 0xB7 0xBF.
+
+    [EFI][Added]
+    1. Added PLDM EFI platform support.
+==============================================================================
+5.09.01.1317
+    [AFU][Fixed]
+    1. Fixed issue where using AFU types file name without any command, 
+       AFU will automatically use command /p as the default setting but will 
+       not execute getpattern.
+    2. Fixed Kn issue where when the size of bin file is bigger than Block size, 
+       AFU will only flash the data of bin file which equals the data of block size. 
+       Others, will be ignored.
+    3. Fixed PLDM issue where AFU cannot execute when system cannot look for smi variable.
+    [AFU][Added]
+    1. Added WSMT support.
+    [AFU][Changed]
+    1. Changed NCB /K /Kn for which when detecting to use a BIOS, AFU will 
+       flash the BIOS by using secure flash to upload the verification.
+    2. Changed RomHole /R /Rn for which when detecting to use a BIOS, 
+       AFU will flash the BIOS by using secure flash to upload the verification.
+    [AFU][Improved]
+    1. Improved the solution of search cap header. [EIP304238]
+    [Linux][Added]
+    1. Added PLDM support into Linux.
+==============================================================================
+5.09.00.1284
+    [AFU][Fixed]
+    1.Fixed issue where system has FFS check sum error when insufficient size of FV.[EIP268717]
+    2.Fixed issue where /caf command has to add _FVH.[EIP271440] 
+
+    [AFU][Added]
+    1.Added getpattern check function.[EIP250565] 
+    2.Added DPC command which can skip A4 and A5 check.[EIP273186] 
+    3.Added COPY ROM TO ESP DISK function.[EIP247139] 
+    4.Added secure boot error ID.[EIP247139]
+
+    [Windows][Added]
+    1.Added PLDM module into AFU.[EIP277472]
+
+    [Linux][Added]
+    1.Added flash support when Linux secure boot enable.[EIP248314] 
+
+    [Linux][Changed]
+    2.Changed Help menu to added /makedrv and /gendrv. 
+
+    [Windows GUI][Added]
+    1.Added multi-language, Traditional Chinese, Simplified Chinese, and Korean, for AFUWINGUI.[EIP253971][EIP259139]
+==============================================================================
+5.08.02.1189
+    [AFU][Fixed]
+    1. Fixed issue where MEUL CAPSULE does not execute normally.
+    2. Fixed issue where when BIOS does not include SLP Key, the function of checking 
+       SLP will inspect the size, which results in AFU crash. [EIP258017][EIP258384][EIP258901][EIP257903]
+    3. Fixed issue where AFU cannot write verify when Block size is 64KB. [EIP242783]
+    4. Fixed issue where always display Error of 0x4A when using /hole:<GUID>. [EIP259374]
+    5. Fixed issue where cannot Write and Verify when inspect Data is Aligment.
+
+    [AFU][Added]
+    1. Added support more ME region.[EIP256965]
+        
+    [AFU][Changed]
+    1. Changed the file size of modifying MEUL as the size of default memory of MEUL.
+        
+    [Windows GUI][Fixed]
+    1. Fixed issue where AFUWINGUI cannot get Core Version, Project Version, Firmware ID, and Firmware GUID.
+    2. Fixed issue where the boundary of right side interface in Windows 10 by AFUWINGUI.
+    3. Fixed issue where AFUWINGUI Copyright is 2016.
+
+    [Linux][Fixed]
+    1. Fixed issue where the error of Linux when using /makedrv and /gendrv.
+==============================================================================
+5.08.01.1167
+    [AFU][Fixed]
+    01. Fixed issue where /hole:<SLP GUID> always replies an error of 0x4B Error: SLP key is not empty at all. [EIP254169]
+    02. Fixed issue where GetPattern will not display the error message.
+    03. Fixed issue where tool cannot update MSDN immediately when OA3.0 using FID location. [EIP253279]
+
+    [Windows][Fixed]
+    01. Fixed issue where AFUWIN using /A will result in system crash issue. [EIP253279]
+==============================================================================    
+5.08.01
+    [AFU][Fixed]
+    01. Fixed issue where /p /b detect SLP Data whether is NULL or not.
+    02. Fixed issue where sending twice smi0x20/0x24 when recovery and capsule. [EIP248734]
+    03. Fixed issue where AFU results in memory overloading by ME DATA Check when 
+        ROM file is less than FLASH_PAGE_SIZE. [EIP225601]
+    04. Fixed issue where simultaneously Buffering will make the wrong size simultaneously 
+        which results in wrong data of Flash buffer. [EIP232707]
+    05. Fixed issue where Verify module cannot show ROM size fail.        
+    06. Fixed issue where 2+2Mode cannot pass through verification of Secure flash.
+    07. Fixed issue where system cannot stop when GetPatternrom finds out errors.
+    
+    [AFU][Added]
+    01. Added ETA_BUILD Usagehead which can add a string of "Manufacture".
+    02. Added error message of write-once. [EIP243432] 
+    03. Added SKL platform whcih can use PS2 keyboard to input password in EFI.
+    04. Added /A and /OAD which add 2+2mode.
+
+    [AFU][Changed]
+    01. Changed Usagehead from 2015 to 2016.
+    02. Changed /l /ln /hole:<guid> /a command whcih adds feature of write-once. [EIP243432] 
+    03. Changed search solution of SMBIOS DATA from orginally searching Main block and 
+        Boot block to expanding to search all of ROM DATA. [EIP234657]
+
+    [Linux][Fixed]
+    01. Fixed issue where Get ACPI TABLE cannot find out the error of DSTD TABLE 
+        during LINUX UEFI BOOT. [EIP233270]
+
+    [Linux][Added]
+    01. Added to support ubuntu 15.10 which can generate a flash driver. [EIP247183]
+
+    [Windows GUI][Fixed]
+    01. Fixed issue where system will not do "Exit button Disable" during WINGUI auto run.
+
+    [Windows GUI][Added]
+    01. Added AFUWINGUI can identify windows 10.
+
+    [EFI][Fixed]
+    01. Fixed issue where getting the wrong size due to free memory in advance 
+        when EFI in Get ACPI Table. [EIP238562]
+==============================================================================
+5.08.00
+    [AFU][New]
+    01.Add support Check ACPI Table "BIMC" would run 2x2 mode.[EIP179199]
+    02.Add support SmiFlash_17;[EIP204308]    
+    03.Add supports ME capsule update function.[EIP205035]
+    04.Add support OFBD MFG control.
+    
+    [AFU][Modify]
+    01.Modify more condition to identify the SLP2.0 key is empty or not.[EIP215239]
+    
+    [AFU][FIX]
+    01.Fix OFBD Get Pattern of Rom File would show other error message.[EIP204355]    
+    02.Fix /cmd:{xxx} command can't use issue.[EIP215444]
+==============================================================================
+5.07.01
+    [AFU][New]
+    01.Add error message for OEM CMD Checking module.    
+    02.Add support SMBIOS data in FV_DATA.
+    03.Add support /cmd: command.
+    04.Add support watchdog value restore.[EIP197706]
+    [AFU][FIX]
+    01.Fix oemcmd and cmd together use have crash issue. 
+    02.Fix oem get pattern of rom file debug message have not disabled.
+    03.Fix Windows driver.
+    [AFU][Modify]
+    01.Modify command: "/OAD", remove upload bin file to BIOS verify step.[[MY6] AFU tool /OAD fail]
+==============================================================================
+5.07.00
+    [AFU][New]
+    01.Add new's command /JBC.[EIP174535].
+    02.Add new's command /MEUL.[EIP174535].
+    03.Add new's feature /Recovery:<Path>, AFU will copy rom file to specified 
+       directory.(Rom file can't auto delete.)
+    04.Add new's OFBD module Get Pattern Module.[EIP159961]
+    05.Add new's capsule:0 ,AFU run capsule mode will enable shutdown step.
+    06.Add support Android OS AFU Linux Version.[EIP159621]
+    07.Add new hide command /b2.[EIP164320]
+
+    [AFU][Modify]
+    01.Modify disable all hide commands.
+    02.Modify command:"/d", show capsule header check string, form "ok/fail" to "Enable/Disable".
+    03.Modify printf flash message way, reduce the frequency of use of printf function.
+    04.Modify init platform step, AFU will priority use "Runtime memory hole".
+
+    [AFU][FIX]
+    01.Fix Aptio5 rom file have many _FVH string, it will cause AFU check FFS error.
+    02.Fix AFU can't show OFBD_CFG BIOS report error.
+    03.Fix update SLP key AFU will modify ffs attribute issue, this issue will cause 
+       secure flash verify fail.[EIP162159]
+    04.Fix rom file check sum will cause AFU execute crash.
+    05.Fix hide command "/cmd:" /Axxx.bin + /cmd:{xxx} issue.
+    06.Fix hide command "/oemcmd:" /Axxx.bin + /oemcmd:xxx issue.
+
+    [WIN][Modify]
+    01.Modify add check driver version function.
+    02.Modify AFU only delete windows driver made by UCP produced, It will not delete all driver.
+
+    [WIN][FIX]
+    01.Fix when use UCP add driver into AFU. From another directory call AFU, It will decompress 
+       into wrong directory, cause AFU can't find driver.
+
+    [WINGUI][FIX]
+    01.Fix AFUWINGUI use command /LR will show error message issue.
+    02.Fix AFUWINGUI have add rom file and add command. In command line, input command 
+       run AFUWINGUI, it will show Unknown command message box.
+==============================================================================
+5.06.01
+    [AFU]
+    1.Fix Alignment RomHole block issue bring SLP2.0 offset calculate error.
+    2.After flash error, afu will add blank line continue print error message.
+    3.Add check aptio platform's feature.
+    4.Add new egm command sfmdt:n1:n2.[EIP151370]
+    5.Add new egm command preset:n.
+    6.Add new command /MEUL.
+    [AFU-WIN]
+    1.Fix when use ucp adding windows driver to AFU inside, afu will decompress to error path.
+    [Error Message]    
+    1.Error: Using the wrong AFU version, Please use Aptio 4 AFU.
+    2.Error: Using the wrong AFU version, Please use Aptio 5 AFU.
+==============================================================================
+5.06.00
+    [AFU]
+    1.Fix ECX erase size issue.[EIP105071]
+    2.Fix UCP insert ROM file AFU can't open issue.
+    3.Fix command /OAD can't flash issue, when secure flash enable.
+    4.Fix, AFU can't find FID OA key issue, when ROM data have many _FVH string.
+    5.Fix When NVRAM is full, and SMIBIOS data in NVRAM, AFU can't preserve this data.
+    6.Fix When flash /p /b /n add /me command, AFU will not preserve need preserve data.
+    7.Fix When ROM Hole size exceed two block size, /holeout bin file is not right data.
+    8.Fix When new rom Rom Hole offset different old rom rom hole offset, use /p /b /n /ln, 
+      ln rom hole data will be update to old rom offset.[EIP157284]
+    9.Modify Copright to 2014.
+    10.Modify when use command /ln, AFU check platform have not rom hole, AFU will show,
+       "Error: Rom Hole not exist."
+
+    [Error Message Change]
+    1."Error: OA Data invalid." to "Error: OA key data is invalid."
+    2."Error: OA key is not NULL at all. And OA Key is the same as Bin File in system." to 
+      "Error: OA key is not empty at all. And OA Key is the same as Bin File in system."
+    3."Error: OA key is NULL at all already." to "Error: OA key is empty at all already."
+    4."Error: OA key is not NULL at all. And OA Key is no the same as Bin File in system." to 
+      "Error: OA key is not empty at all. And OA Key is no the same as Bin File in system."
+    5."Error: Unable to start a Secure Flash session." to "Error: Secure Flash Rom Verify fail."
+==============================================================================
+5.05.04
+    [AFU]
+    1.Fix SMBIOS Data can't restore, when SMBIOS Data in NVRAM and NVRAM is full. [EIP145538],[EIP145305]
+==============================================================================
+5.05.03
+    [AFU]
+    1.Change Version 3.05.02 to 5.05.03.
+    2.Fix check EC bin file header data return result error.
+    3.Fix Rom Hole does not Alignment block error.[EIP143348]
+
+    [AFUGUI-MFC]
+    1.Fix WINGUI Show OFBD ROM ID Check dialog issue.[ECR191374]
+    2.Fix WINGUI Show OFBD EC dialog issue.
