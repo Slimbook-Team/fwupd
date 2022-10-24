@@ -145,7 +145,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       </details>
       In this last error, /sys/firmware/efi/efivars/<b>OsIndicationsSupported</b>-8be4df61-93ca-11d2-aa0d-00e098032b8c exists, but only ...OsIndications...  does not.
       
-RFwupd version:
+Fwupd version:
 ------
 ```
 runtime   org.freedesktop.fwupd         1.7.5
