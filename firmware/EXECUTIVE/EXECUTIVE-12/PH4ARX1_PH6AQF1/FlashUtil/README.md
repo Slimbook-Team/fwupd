@@ -4,7 +4,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
 2. We add an xml to generate the .cab file:
       <details close>
-      <summary>firmware.metainfo.xml</summary>
+      <summary><b>firmware.metainfo.xml</b></summary>
 
       ```xml
       <?xml version='1.0' encoding='utf-8'?>
@@ -49,7 +49,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
     This works fine to upload firmware tol lvfs, but downloading the [signed .cab](https://fwupd.org/lvfs/firmware/13906) from lvfs and installing it gives us this error:
       <details close>
-      <summary>sudo fwupdtool get-history</summary>
+      <summary><b>sudo fwupdtool get-history</b> (remains after reboot)</summary>
 
       ```shell
       slimbook@slimbook-Executive14i12:~$ sudo fwupdtool get-history 
@@ -84,10 +84,10 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       
 
       <details close>
-      <summary>sudo fwupdtool get-devices</summary>
+      <summary><b>sudo fwupdtool get-devices</b> (authentication signing error)</summary>
 
       ```shell
-      slimbook@slimbook-Executive14i12:~$ sudo fwupdtool get-devices
+      slimbook@slimbook-Executive14i12:~$ sudo fwupdtool get-devices 
       ...
 
       ├─System Firmware:
@@ -115,7 +115,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       
       
       <details close>
-      <summary>sudo fwupdtool install-blob 39fcfdd0d6d1396fe970aca9ada148aebbdab3c1a8f203382ef804fdd3c87d76-105.cab</summary>
+      <summary><b>sudo fwupdtool install-blob 39fcfdd0d6d1396fe970aca9ada148aebbdab3c1a8f203382ef804fdd3c87d76-105.cab</b> ()</summary>
 
       ```shell
       slimbook@slimbook-Executive14i12:~/Escritorio$ sudo fwupdtool install-blob 39fcfdd0d6d1396fe970aca9ada148aebbdab3c1a8f203382ef804fdd3c87d76-105.cab
@@ -143,5 +143,5 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
       ```
       </details>
-      In this last error, /sys/firmware/efi/efivars/OsIndicationsSupported-8be4df61-93ca-11d2-aa0d-00e098032b8c exists, but only ...OsIndications...  does not.
+      In this last error, /sys/firmware/efi/efivars/<b>OsIndicationsSupported</b>-8be4df61-93ca-11d2-aa0d-00e098032b8c exists, but only ...OsIndications...  does not.
       
