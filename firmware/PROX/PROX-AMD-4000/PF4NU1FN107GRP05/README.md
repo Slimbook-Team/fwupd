@@ -1,6 +1,6 @@
 > **Binary files used can be found in FlashUtil directory**
 
-### BIOS Update
+### BIOS Update seems to work
 Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to work well on a clean install. (Yo must be logged in to see it.)
 
 It updates the BIOS but not the EC, EC might have to be updated separately.
