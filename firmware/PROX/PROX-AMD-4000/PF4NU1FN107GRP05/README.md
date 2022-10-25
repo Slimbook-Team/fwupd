@@ -80,7 +80,8 @@ superiotool r4.18
 Found ITE IT8528 (id=0x8528, rev=0xa) at 0x6e
 ```
 
-**fwupd version information**
+Fwupd version information
+--------------
 ```shell
 fwupdmgr --version
 runtime   org.freedesktop.fwupd         1.7.5
