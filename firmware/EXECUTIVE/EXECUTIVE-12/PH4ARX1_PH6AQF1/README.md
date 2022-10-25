@@ -10,7 +10,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
 
 2. We add an xml to generate the .cab file:
-      <details close>
+      <details open>
       <summary><b>firmware.metainfo.xml</b></summary>
 
       ```xml
@@ -55,7 +55,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 `gcab --create firmware.cab firmware.cap firmware.metainfo.xml`
 
     This works fine to upload firmware tol lvfs, but downloading the [signed .cab](https://fwupd.org/lvfs/firmware/13906) from lvfs and installing it gives us this error:
-      <details close>
+      <details open>
       <summary><b>sudo fwupdtool get-history</b> (remains after reboot)</summary>
 
       ```shell
@@ -90,7 +90,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
       
 
-      <details close>
+      <details open>
       <summary><b>sudo fwupdtool get-devices</b> (authentication signing error)</summary>
 
       ```shell
