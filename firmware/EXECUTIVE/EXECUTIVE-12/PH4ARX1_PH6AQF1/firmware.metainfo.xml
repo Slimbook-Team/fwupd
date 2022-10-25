@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="firmware">
+  <id>org.Slimbook.guidd1f93b23</id>
+  <name>Intel Executive 12 Series</name>
+  <summary>BIOS update slimbook</summary>
+  <description>
+    <p>Improvements made to bios features</p>
+  </description>
+  <provides>
+    <firmware type="flashed">d1f93b23-9f97-5b9d-8547-2cdd203e17a5</firmware>
+  </provides>
+  <url type="homepage">https://slimbook.es</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>proprietary</project_license>
+  <updatecontact>dev@slimbook.es</updatecontact>
+  <developer_name>Slimbook</developer_name>
+  <releases>
+    <release version="105" date="2022-09-24" urgency="high">
+    <checksum filename="firmware_bin.cap" target="content"/> 
+      <p>New BIOS for the device</p>
+        <ul>
+          <li>Useful general improvements made</li>
+        </ul>
+    </release>
+  </releases>
+  <custom>
+    <value key="LVFS::VersionFormat">plain</value>
+    <value key="LVFS::UpdateProtocol">org.uefi.capsule</value>
+  </custom>
+</component>
