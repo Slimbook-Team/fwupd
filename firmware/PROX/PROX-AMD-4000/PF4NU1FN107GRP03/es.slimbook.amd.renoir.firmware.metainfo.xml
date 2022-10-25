@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="firmware">
+  <id>es.slimbook.amd.renoir.firmware.metainfo.xml</id>
+  <name>ProXAMD Series</name>
+  <name_variant_suffix>14 and 15 inches</name_variant_suffix>
+  <summary>Bios for AMD Renoir laptops</summary>
+  <description>
+    <p>BIOS for the KDE Slimbook 3 and ProX AMD. 14 and 15 inches</p>
+  </description>
+  <provides>
+    <firmware type="flashed">24e5bcee-3204-56b7-b161-c4a8f91513fa</firmware>
+  </provides>
+  <url type="homepage">https://slimbook.es/</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <categories>
+    <category>X-System</category>
+  </categories>
+  <custom>
+    <value key="LVFS::VersionFormat">plain</value>
+    <value key="LVFS::UpdateProtocol">org.uefi.capsule</value>
+  </custom>
+  <releases>
+    <release version="103" date="2021-09-22" urgency="high">
+      <checksum filename="PROX-AMD.CAP" target="content"/>
+      <description>
+        <p>Initial BIOS for the device</p>
+        <ul>
+          <li>Fan control updated</li>
+          <li>Keyboard control updated</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>
+

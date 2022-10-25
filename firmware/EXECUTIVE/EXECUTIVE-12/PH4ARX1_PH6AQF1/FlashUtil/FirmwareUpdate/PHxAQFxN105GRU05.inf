@@ -1,0 +1,49 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Provider    = %Provider%
+Class       = Firmware
+ClassGuid   = {f2e7dd72-6468-4e36-b6f1-6488f42c1b52}
+DriverVer   = 10/20/2022,11.1.05.0
+CatalogFile = PHxAQFxN105GRU05.cat
+PnpLockdown = 1
+
+[Manufacturer]
+%MfgName% = Firmware,NTamd64
+
+[Firmware.NTamd64]
+%FirmwareDesc% = Firmware_Install,UEFI\RES_{d1f93b23-9f97-5b9d-8547-2cdd203e17a5}
+
+[Firmware_Install.NT]
+CopyFiles = Firmware_CopyFiles
+
+[Firmware_CopyFiles]
+PHxAQFxN105GRU05.rom
+
+[Firmware_Install.NT.Hw]
+AddReg = Firmware_AddReg
+
+[Firmware_AddReg]
+HKR,,FirmwareId,,{d1f93b23-9f97-5b9d-8547-2cdd203e17a5}
+HKR,,FirmwareVersion,%REG_DWORD%,105
+HKR,,FirmwareFilename,,{d1f93b23-9f97-5b9d-8547-2cdd203e17a5}\PHxAQFxN105GRU05.rom
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+PHxAQFxN105GRU05.rom = 1
+
+[DestinationDirs]
+DefaultDestDir = %DIRID_WINDOWS%,Firmware\{d1f93b23-9f97-5b9d-8547-2cdd203e17a5}
+
+[Strings]
+; localizable
+Provider     = "American Megatrends INC."
+MfgName      = "American Megatrends INC."
+FirmwareDesc = "American Megatrends INC System Firmware 1.05GRU05"
+DiskName     = "Firmware Update"
+
+; non-localizable
+DIRID_WINDOWS = 10
+REG_DWORD     = 0x00010001
+
