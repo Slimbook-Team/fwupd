@@ -1,7 +1,7 @@
 > **Binary files used can be found in FlashUtil directory**
 
 ### BIOS Update
-Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to work well on a clean install.
+Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to work well on a clean install. (Yo must be logged in to see it.)
 
 It updates the BIOS but not the EC, EC might have to be updated separately.
 
@@ -9,7 +9,7 @@ So, the las time we talked about this, you mentioned the superio plugin.
 
 ### Super I/O problem
 
-Need EC device to show on fwupdmgr get-devices in order to be able to update it via fwupd…
+Need EC device to show on fwupdmgr get-devices in order to be able to update it via fwud, but fwupdtool does not detect any device with the plugin:
 
 Output of:  `sudo fwupdtool get-devices --plugins superio -v`
 
@@ -24,11 +24,14 @@ No detected devices
 07:57:41:0483 FuMain               No detected devices
 ```
 
-This is the error, code is here:  
-[fwupd/plugins/superio/fu-superio-it85-device.c](https://github.com/fwupd/fwupd/blob/5fcfe7f0fc8cb836a93713cae34f5ba64af8ee69/plugins/superio/fu-superio-it85-device.c#L59)
+This is the error: `failed to get EC name: timed out whilst waiting for 0x01:1`
 
-This is what I added to /usr/share/fwupd/quirks.d/superio.quirk
-----------
+Error code is defined here:  
+[fwupd/plugins/superio/fu-superio-it85-device.c](https://github.com/fwupd/fwupd/blob/5fcfe7f0fc8cb836a93713cae34f5ba64af8ee69/plugins/superio/fu-superio-it85-device.c#L59)
+Why does this happen?
+
+
+## This is what I added to /usr/share/fwupd/quirks.d/superio.quirk
 ```
 ## Slimbook 2
 [b71274b6-0a5f-543c-964d-2d125a6959c2]
@@ -38,7 +41,7 @@ SuperioId = 0x8528
 SuperioPort = 0x6e
 ```
 
-> **Got thr GUID from: `sudo fwupdtool hwids` (as you told me)**
+> **I got the GUID from: `sudo fwupdtool hwids` (as you told me)**
 ```
 Identified face as slimbookComputer Information
 
@@ -74,7 +77,7 @@ Hardware IDs
 {a8b3cb8b-ff31-5100-91ce-2575340330db}   <- Manufacturer + BaseboardManufacturer + BaseboardProduct
 {50006923-f8ff-5601-9e59-c4e0c852297f}   <- Manufacturer
 ```
-> **Got SuperIO info from: `sudo superiotool`**
+> **I got SuperIO info from: `sudo superiotool`**
 ```
 superiotool r4.18
 Found ITE IT8528 (id=0x8528, rev=0xa) at 0x6e
