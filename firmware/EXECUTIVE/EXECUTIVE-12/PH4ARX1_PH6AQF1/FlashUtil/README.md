@@ -2,6 +2,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
 
 1. We generate a <b>firmware.cap</b> file from this binary file using the [add_capsule_header.py](https://github.com/fwupd/fwupd/blob/main/contrib/firmware_packager/add_capsule_header.py) from the fwupd repository.
 
+
 2. We add an xml to generate the .cab file:
       <details close>
       <summary><b>firmware.metainfo.xml</b></summary>
@@ -155,3 +156,9 @@ runtime   org.kernel                    5.15.0-52-generic
 compile   org.freedesktop.fwupd         1.7.5
 runtime   org.freedesktop.gusb          0.3.10
 ```
+
+Aditional information:
+----------------
+Building .cap with .rom file, and installing it without uploading to LVFS gives me this error: `failed to update to 0: invalid firmware format`
+
+We can manually update BIOS and EC using this file [F.nsh](https://github.com/Slimbook-Team/fwupd/blob/fwupd_files/firmware/EXECUTIVE/EXECUTIVE-12/PH4ARX1_PH6AQF1/FlashUtil/AfuEfi64Cap/F.nsh), the binary and the rom file in that linked directory.
