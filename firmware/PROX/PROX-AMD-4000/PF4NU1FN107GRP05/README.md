@@ -39,8 +39,6 @@ SuperioPort = 0x6e
 ```
 
 > **Got thr GUID from: `sudo fwupdtool hwids` (as you told me)**
-----------
-
 ```
 Identified face as slimbookComputer Information
 
@@ -77,7 +75,6 @@ Hardware IDs
 {50006923-f8ff-5601-9e59-c4e0c852297f}   <- Manufacturer
 ```
 > **Got SuperIO info from: `sudo superiotool`**
-----------
 ```
 superiotool r4.18
 Found ITE IT8528 (id=0x8528, rev=0xa) at 0x6e
