@@ -1,0 +1,49 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Provider    = %Provider%
+Class       = Firmware
+ClassGuid   = {f2e7dd72-6468-4e36-b6f1-6488f42c1b52}
+DriverVer   = 07/28/2022,11.1.05.0
+CatalogFile = PF4NU1FN107GRP05.cat
+PnpLockdown = 1
+
+[Manufacturer]
+%MfgName% = Firmware,NTamd64
+
+[Firmware.NTamd64]
+%FirmwareDesc% = Firmware_Install,UEFI\RES_{24e5bcee-3204-56b7-b161-c4a8f91513fa}
+
+[Firmware_Install.NT]
+CopyFiles = Firmware_CopyFiles
+
+[Firmware_CopyFiles]
+PF4NU1FN107GRP05.rom
+
+[Firmware_Install.NT.Hw]
+AddReg = Firmware_AddReg
+
+[Firmware_AddReg]
+HKR,,FirmwareId,,{24e5bcee-3204-56b7-b161-c4a8f91513fa}
+HKR,,FirmwareVersion,%REG_DWORD%,105
+HKR,,FirmwareFilename,,{24e5bcee-3204-56b7-b161-c4a8f91513fa}\PF4NU1FN107GRP05.rom
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+PF4NU1FN107GRP05.rom = 1
+
+[DestinationDirs]
+DefaultDestDir = %DIRID_WINDOWS%,Firmware\{24e5bcee-3204-56b7-b161-c4a8f91513fa}
+
+[Strings]
+; localizable
+Provider     = "American Megatrends INC."
+MfgName      = "American Megatrends INC."
+FirmwareDesc = "American Megatrends INC System Firmware 1.07GRP05"
+DiskName     = "Firmware Update"
+
+; non-localizable
+DIRID_WINDOWS = 10
+REG_DWORD     = 0x00010001
+

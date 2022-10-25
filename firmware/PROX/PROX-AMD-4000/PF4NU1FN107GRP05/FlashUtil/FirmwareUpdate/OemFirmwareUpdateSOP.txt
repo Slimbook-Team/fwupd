@@ -1,0 +1,16 @@
+1.	Boot to BIOS setup-> disable Secure Boot
+2.	Copy folder "FirmwareUpdate" to target machine
+3.	Install Certificate:
+		  Double-Click ProjectName.cat-> View Signature-> View Certificate
+		  -> Install Certificate...-> Local Machine-> Next-> (User Account Control) Yes
+		  -> Browse...-> select "Trusted Root Certification Authorities"-> OK-> Next
+		  -> Finish-> (pop up message "The import was successful.")
+4.	Enable testsigning on:
+		  Right-Click on testsigningOn.bat-> select "Run as administrator"-> Yes
+		  (it must shows "The operation completed successfully." denote successfully)
+5.	Do Firmware Update
+		  Device Manager-> expand "Firmware" item-> Right-Click "System Firmware"
+		  -> select "Update Driver"-> click "Browse my computer for driver software"
+		  -> browse and select folder "FirmwareUpdate"-> Next
+		  -> (pop up "Would you like to install this device software?") select "Install"
+		  -> Close-> (pop up a window) select "Yes"-> (target system will restart and take BIOS update automatically)
