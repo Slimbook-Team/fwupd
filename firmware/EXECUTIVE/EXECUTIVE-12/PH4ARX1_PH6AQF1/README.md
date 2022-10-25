@@ -121,7 +121,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       
       
       
-      <details close>
+      <details open>
       <summary><b>sudo fwupdtool install-blob 39fcfdd0d6d1396fe970aca9ada148aebbdab3c1a8f203382ef804fdd3c87d76-105.cab</b> ()</summary>
 
       ```shell
