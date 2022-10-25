@@ -38,7 +38,7 @@ SuperioId = 0x8528
 SuperioPort = 0x6e
 ```
 
-Got thr GUID from: `sudo fwupdtool hwids` (as you told me)
+> **Got thr GUID from: `sudo fwupdtool hwids` (as you told me)**
 ----------
 
 ```
@@ -76,7 +76,7 @@ Hardware IDs
 {a8b3cb8b-ff31-5100-91ce-2575340330db}   <- Manufacturer + BaseboardManufacturer + BaseboardProduct
 {50006923-f8ff-5601-9e59-c4e0c852297f}   <- Manufacturer
 ```
-Got SuperIO info from: `sudo superiotool`
+> **Got SuperIO info from: `sudo superiotool`**
 ----------
 ```
 superiotool r4.18
