@@ -1,3 +1,5 @@
+> **Binary files used can be found in FlashUtil directory**
+
 ### BIOS Update
 Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to work well on a clean install.
 
