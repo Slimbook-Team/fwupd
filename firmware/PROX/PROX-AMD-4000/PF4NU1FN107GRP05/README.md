@@ -1,15 +1,17 @@
-Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that happens to work well on a clean install.
+### BIOS Update
+Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to work well on a clean install.
 
 It updates the BIOS but not the EC, EC might have to be updated separately.
 
 So, the las time we talked about this, you mentioned the superio plugin.
 
-Super I/O problem
+### Super I/O problem
 
 Need EC device to show on fwupdmgr get-devices in order to be able to update it via fwupd…
 
-Output of:  sudo fwupdtool get-devices --plugins superio -v
+Output of:  `sudo fwupdtool get-devices --plugins superio -v`
 
+```
 07:57:41:0198 FuEngine             Emitting PropertyChanged('Status'='loading')
 07:57:41:0198 FuPlugin             coldplug(superio)
 07:57:41:0201 FuDevice             using 14362b5eaa256cd54e4991f11fe97fdc47800e97 for /dev/port:FuSuperioIt85Device
@@ -18,21 +20,26 @@ Output of:  sudo fwupdtool get-devices --plugins superio -v
 07:57:41:0483 FuEngine             writing motd target /var/cache/fwupd/motd.d/85-fwupd
 No detected devices
 07:57:41:0483 FuMain               No detected devices
+```
 
 This is the error, code is here:  
-fwupd/plugins/superio/fu-superio-it85-device.c
+[fwupd/plugins/superio/fu-superio-it85-device.c](https://github.com/fwupd/fwupd/blob/5fcfe7f0fc8cb836a93713cae34f5ba64af8ee69/plugins/superio/fu-superio-it85-device.c#L59)
 
 This is what I added to /usr/share/fwupd/quirks.d/superio.quirk
-
+----------
+```
 ## Slimbook 2
 [b71274b6-0a5f-543c-964d-2d125a6959c2]
 SuperioGType = FuSuperioIt85Device
 [SUPERIO\GUID_b71274b6-0a5f-543c-964d-2d125a6959c2]
 SuperioId = 0x8528
 SuperioPort = 0x6e
+```
 
-Got thr GUID from: sudo fwupdtool hwids
+Got thr GUID from: `sudo fwupdtool hwids` (as you told me)
+----------
 
+```
 Identified face as slimbookComputer Information
 
 BiosVendor: American Megatrends International, LLC.
@@ -66,14 +73,16 @@ Hardware IDs
 {eb94a862-0e78-5b63-91d3-c577bf66fc7f}   <- Manufacturer + EnclosureKind
 {a8b3cb8b-ff31-5100-91ce-2575340330db}   <- Manufacturer + BaseboardManufacturer + BaseboardProduct
 {50006923-f8ff-5601-9e59-c4e0c852297f}   <- Manufacturer
-
-Got SuperIO info from: sudo superiotool
-
+```
+Got SuperIO info from: `sudo superiotool`
+----------
+```
 superiotool r4.18
 Found ITE IT8528 (id=0x8528, rev=0xa) at 0x6e
+```
 
-fwupd version information
-
+**fwupd version information**
+```shell
 fwupdmgr --version
 runtime   org.freedesktop.fwupd         1.7.5
 runtime   com.dell.libsmbios            2.4
@@ -81,3 +90,4 @@ compile   org.freedesktop.gusb          0.3.10
 runtime   org.kernel                    5.15.0-50-generic
 compile   org.freedesktop.fwupd         1.7.5
 runtime   org.freedesktop.gusb          0.3.10
+```
