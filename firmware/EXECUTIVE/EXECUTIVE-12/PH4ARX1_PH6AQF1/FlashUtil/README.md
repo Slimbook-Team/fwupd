@@ -1,3 +1,9 @@
+### Problem
+
+`failed to update to 0: authentication signing error`
+
+### How we generate firmware.cab
+
 We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd/blob/fwupd_files/firmware/EXECUTIVE/EXECUTIVE-12/PH4ARX1_PH6AQF1/FlashUtil/ROM/PHxAQFxN105GRU05.BIN)
 
 1. We generate a <b>firmware.cap</b> file from this binary file using the [add_capsule_header.py](https://github.com/fwupd/fwupd/blob/main/contrib/firmware_packager/add_capsule_header.py) from the fwupd repository.
