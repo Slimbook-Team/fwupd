@@ -5,7 +5,7 @@ Here is the [LVFS firmware](https://fwupd.org/lvfs/firmware/13824) that seems to
 
 It updates the BIOS but not the EC, EC might have to be updated separately.
 
-So, the las time we talked about this, you mentioned the superio plugin.
+So, the last time we talked about this, you mentioned the superio plugin.
 
 ### Super I/O problem
 
