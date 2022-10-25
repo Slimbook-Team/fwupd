@@ -167,4 +167,4 @@ Aditional information:
 ----------------
 Building .cap with .rom file, and installing it without uploading to LVFS gives me this error: `failed to update to 0: invalid firmware format`
 
-We can manually update BIOS and EC using this file [F.nsh](https://github.com/Slimbook-Team/fwupd/blob/fwupd_files/firmware/EXECUTIVE/EXECUTIVE-12/PH4ARX1_PH6AQF1/FlashUtil/AfuEfi64Cap/F.nsh), the binary and the rom file in that linked directory.
+We can manually update BIOS and EC at once using this file [F.nsh](https://github.com/Slimbook-Team/fwupd/blob/fwupd_files/firmware/EXECUTIVE/EXECUTIVE-12/PH4ARX1_PH6AQF1/FlashUtil/AfuEfi64Cap/F.nsh), the binary and the rom file in [this directory](https://github.com/Slimbook-Team/fwupd/tree/fwupd_files/firmware/EXECUTIVE/EXECUTIVE-12/PH4ARX1_PH6AQF1/FlashUtil/AfuEfi64Cap).
