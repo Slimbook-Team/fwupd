@@ -129,7 +129,7 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       Loading…                [-                                      ]
       14:43:44:0654 FuEngine             failed to get releases for UEFI Device Firmware: No releases found: no HWIDs matched c58fd9e0-fdcb-5143-8b8d-067f49616186|0f5747db-b74f-5dd0-aa68-0ed55b96b2c4
       14:43:44:0655 FuEngine             failed to get releases for Intel Management Engine: No releases found: no HWIDs matched c58fd9e0-fdcb-5143-8b8d-067f49616186|0f5747db-b74f-5dd0-aa68-0ed55b96b2c4
-      14:43:47:0520 FuEngine             failed to update history database: Error al abrir el archivo /sys/firmware/efi/efivars/CapsuleLast-39b68c46-f7fb-441b-b6ec-16b0f69821f3: No existe el archivo o el directorio
+      14:43:47:0520 FuEngine             failed to update history database: Error al abrir el archivo /sys/firmware/efi/efivars/CapsuleLast-39b68c46-f7fb-441b-b6ec-16b0f69821f3: File or directory does not exist.
       Loading…                [***************************************]
       Choose a device:
       0.	Cancel
