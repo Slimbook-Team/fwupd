@@ -9,7 +9,7 @@ So, the last time we talked about this, you mentioned the superio plugin.
 
 ### Super I/O problem
 
-Need EC device to show on fwupdmgr get-devices in order to be able to update it via fwud, but fwupdtool does not detect any device with the plugin:
+We need EC device to show on fwupdmgr get-devices in order to be able to update it via fwud, but fwupdtool does not detect any device with the plugin:
 
 Output of:  `sudo fwupdtool get-devices --plugins superio -v`
 
