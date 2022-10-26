@@ -31,7 +31,7 @@ Error code is defined here:
 Why does this happen?
 
 
-## This is what I added to /usr/share/fwupd/quirks.d/superio.quirk
+## This is what I added to /usr/share/fwupd/quirks.d/superio.quirk according to the plugin
 ```
 ## Slimbook 2
 [b71274b6-0a5f-543c-964d-2d125a6959c2]
