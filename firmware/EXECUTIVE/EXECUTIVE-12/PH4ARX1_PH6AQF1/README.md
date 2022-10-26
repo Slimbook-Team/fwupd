@@ -146,11 +146,11 @@ We have this file: [PHxAQFxN105GRU05.BIN](https://github.com/Slimbook-Team/fwupd
       11.	362301da643102b9f38477387e2193e57abaa590 (UEFI dbx)
       12.	3746495ae28b17bef982ccce498b9a456bea6ff3 (USB4 host controller)
       6 
-      Descomprimiendo…         [ -                                     ]failed to read EFI variable: Error opening file /sys/firmware/efi/efivars/OsIndications-8be4df61-93ca-11d2-aa0d-00e098032b8c: The file or directory does not exist
+      Descomprimiendo…         [ -                                     ]failed to read EFI variable: Error opening file /sys/firmware/efi/efivars/OsIndications-8be4df61-93ca-11d2-aa0d-00e098032b8c: The file or directory does not exist 
 
       ```
       </details>
-      In this last error, /sys/firmware/efi/efivars/<b>OsIndicationsSupported</b>-8be4df61-93ca-11d2-aa0d-00e098032b8c exists, but only ...OsIndications...  does not.
+      In this last error, /sys/firmware/efi/efivars/<b>OsIndicationsSupported</b>-8be4df61-93ca-11d2-aa0d-00e098032b8c exists, but only ...OsIndications...  does not. ¿Might this be a bug?
       
 Fwupd version:
 ------
