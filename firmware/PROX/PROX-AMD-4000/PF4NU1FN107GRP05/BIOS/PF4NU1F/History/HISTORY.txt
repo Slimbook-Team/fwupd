@@ -1,0 +1,100 @@
+*****************************************************************************************************************
+Model Name : BIOS Release History (PF4NU1F;PF5NU1G)
+*****************************************************************************************************************
+************** Note: AFU Tool command **************
+* /K - Program all non-critical blocks.		   *
+* /Kn - Program n'th non-critical block(n=0-15).   *
+* If want to clean oemsvc, add /k3 command         *
+* If want to clean smbios, add /k4 + del /r command*
+* Default without /k in order to keep smbios       *
+* and oemsvc data,modify f.nsh or f.bat if needed. *
+* Valid for this product only.                     *
+****************************************************
+=================================================================================================================
+BIOS File                      : PF4NU1FN107GRP05.BIN   
+Checksum                       : 0xD10C8323
+Release Date                   : 07/28/2022 
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+1. update EC to 1.09.50 :  Update to HealthCare 2.0
+=================================================================================================================
+BIOS File                      : PF4NU1FN107GRP04.BIN   
+Checksum                       : 0xD1192521
+Release Date                   : 01/11/2022 
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+1. Change the Logo.
+2. Update EC file to EC_1.08.xx.xx.
+
+=================================================================================================================
+BIOS File                      : PF4NU1FN107GRP03.BIN   
+Checksum                       : 0xD054ADDE
+Release Date                   : 12/11/2020 
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+1.  update AMD PI solution( PLAT-64019: [CPM] Share memory still cannot over 2GB after enabling the Hyper-V)
+=================================================================================================================
+BIOS File                      : PF4NU1FN106GRP02.BIN   
+Checksum                       : 0xD0567199
+Release Date                   : 11/30/2020 
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+1. Re-write PCIMemAddrforLPCTargCyc when S3 resume to prevent from "H2RAM function fail after S3 once Memory integrity enabled" issue.
+2. Show Dynamic AMDXpert2 formset, and hidden other dynamic formset
+3. Update EC file:PF4NU1F_1.04.00.00
+=================================================================================================================
+BIOS File                      : PF4NU1FN106GRP01.BIN   
+Checksum                       : 0xD05D9536
+Release Date                   : 07/06/2020 
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+Update WiFi enable/disable option under BIOS setup menu¡£
+=================================================================================================================
+BIOS File                      : PF4NU1FN106GRP00.BIN   
+Checksum                       : 0xD05DA6A9
+Release Date                   : 06/24/2020
+ROM Size                       : 16M
+Source Control Label           : 5.16_1AWKK_PI1.0.0.4_014
+Video BIOS Version             : Renoir generic Baseline VBIOS 026
+GOP Version                    : AMD GOP X64 Release Driver Rev.2.10.0.0.0.
+CPU ID                         : 00860F01
+Microcode Version              : 8600103 
+AGESA PI version               : Renoir PI 1.0.0.4
+Platform Name                  : Celadon
+-----------------------------------------------------------------------------------------------------------------
+1. First release Grupoodin BIOS¡£
